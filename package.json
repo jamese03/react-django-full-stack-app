@@ -4,25 +4,26 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "dev": "webpack --mode development ./full_stack_app/frontend/src/index.js --output ./full_stack_app/frontend/static/frontend/main.js",
-        "build": "webpack --mode production ./full_stack_app/frontend/src/index.js --output ./full_stack_app/frontend/static/frontend/main.js",
+        "dev": "webpack --mode development",
+        "build": "webpack --mode production",
         "start-backend": "cd full_stack_app && python manage.py runserver"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "dependencies": {
-        "@babel/core": "^7.9.0",
-        "@babel/preset-env": "^7.9.5",
-        "@babel/preset-react": "^7.9.4",
+        "awesome-typescript-loader": "^5.2.1",
         "babel-loader": "^8.1.0",
         "babel-plugin-transform-class-properties": "^6.24.1",
+        "source-map-loader": "^0.2.4",
         "webpack": "^4.43.0",
-        "webpack-cli": "^3.3.11"
-    },
-    "devDependencies": {
+        "webpack-cli": "^3.3.11",
         "prop-types": "^15.7.2",
         "react": "^16.13.1",
         "react-dom": "^16.13.1"
+    },
+    "devDependencies": {
+        "@types/react": "^16.9.34",
+        "typescript": "^3.8.3"
     }
 }
