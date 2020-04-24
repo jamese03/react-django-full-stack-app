@@ -6,24 +6,31 @@
     "scripts": {
         "dev": "webpack --mode development",
         "build": "webpack --mode production",
-        "start-backend": "cd full_stack_app && python manage.py runserver"
+        "start-backend": "cd full_stack_app && python manage.py runserver",
+        "start": "npm run dev && npm run start-backend"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "dependencies": {
+        "@material-ui/core": "^4.9.11",
+        "@material-ui/icons": "^4.9.1",
+        "@types/material-ui": "^0.21.7",
         "awesome-typescript-loader": "^5.2.1",
         "babel-loader": "^8.1.0",
         "babel-plugin-transform-class-properties": "^6.24.1",
+        "prop-types": "^15.7.2",
+        "react": "^16.13.1",
+        "react-dom": "^16.13.1",
         "source-map-loader": "^0.2.4",
         "webpack": "^4.43.0",
         "webpack-cli": "^3.3.11",
-        "prop-types": "^15.7.2",
-        "react": "^16.13.1",
-        "react-dom": "^16.13.1"
+        "webpack-dev-server": "^3.10.3"
     },
     "devDependencies": {
+        "@types/node": "^13.13.2",
         "@types/react": "^16.9.34",
+        "@types/react-dom": "^16.9.6",
         "typescript": "^3.8.3"
     }
 }
