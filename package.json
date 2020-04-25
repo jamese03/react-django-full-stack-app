@@ -4,10 +4,9 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "dev": "webpack --mode development --watch",
         "build": "webpack --mode production",
         "start-backend": "cd full_stack_app && python manage.py runserver",
-        "start": "npm run dev && npm run start-backend"
+        "start-frontend": "webpack --mode development --watch"
     },
     "keywords": [],
     "author": "",

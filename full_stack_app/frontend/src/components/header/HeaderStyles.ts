@@ -1,9 +1,10 @@
 import { Theme, createStyles } from "@material-ui/core";
 
-export const LayoutStyles = (theme: Theme) => {
+export const HeaderStyles = (theme: Theme) => {
     return createStyles({
-        root: {
+        headerRoot: {
             flexGrow: 1,
+            marginBottom: "10px",
         },
         paper: {
             padding: theme.spacing(2),
