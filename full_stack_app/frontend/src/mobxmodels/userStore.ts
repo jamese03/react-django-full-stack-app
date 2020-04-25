@@ -18,6 +18,9 @@ export const UserStore = types
             const response = await getEnv<IStoreEnv>(self,).Axios.AxiosGetRequests.fetchUsers();
             console.log(JSON.stringify(response.data))
             self.setUsers(response.data)
+        },
+        removeUser: (user: IUser) => {
+            self.users.remove(user)
         }
     }));
 

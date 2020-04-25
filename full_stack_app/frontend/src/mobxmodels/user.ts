@@ -1,5 +1,7 @@
 import { USER } from "../constants/constants";
-import { types, Instance, SnapshotOut, SnapshotIn } from "mobx-state-tree";
+import { types, Instance, SnapshotOut, SnapshotIn, getEnv, getParent } from "mobx-state-tree";
+import { IStoreEnv } from ".";
+import { IUserStore } from "./userStore";
 
 export const User = types
     .model(USER, {
@@ -19,6 +21,17 @@ export const User = types
         setaAbout_me: (about_me: string) => {
             self.about_me = about_me;
         },
+    })).actions((self) =>({
+        deleteUser: async () => {
+            const userStore = getParent(self, 2) as IUserStore;
+            try {
+                await getEnv<IStoreEnv>(self,).Axios.AxiosDeleteRequests.deleteUser(self.id);
+                userStore.removeUser(self as IUser)
+            } catch (e) {
+                alert("failed to delete user");
+            }
+
+        }
     }));
 
 export type IUser = Instance<typeof User>;
