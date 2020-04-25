@@ -1,27 +1,34 @@
 import React from "react";
 import { render } from "react-dom";
-import App from "./components/App";
 import { ThemeProvider } from "@material-ui/core";
 import theme from "./theme/theme";
 import { HashRouter as Router } from "react-router-dom";
+import { IRootStore, RootStore } from "./mobxmodels/rootStore";
+import { Provider } from "mobx-react";
+import { AxiosWebClient } from "./axios/AxiosWebClient";
+import { IStoreEnv } from "./mobxmodels";
+import { AppContainer } from "./App/AppContainer";
+import makeInspectable from "mobx-devtools-mst";
+
 
 const rootEl = document.getElementById("root");
 
+const rootStoreEnv: IStoreEnv = { Axios: AxiosWebClient };
+const rootStore: IRootStore = RootStore.create({}, rootStoreEnv);
+const isDev = process.env.NODE_ENV === "development";
+
+if (isDev) {
+    makeInspectable(rootStore);
+}
+
 render(
-    <ThemeProvider theme={theme}>
-        <Router>
-            <App />
-        </Router>
-    </ThemeProvider>,
+    <Provider {...rootStore}>
+        <ThemeProvider theme={theme}>
+            <Router>
+                <AppContainer />
+            </Router>
+        </ThemeProvider>
+    </Provider>,
     rootEl
 );
 
-// todo figure out hot reload?
-// //@ts-ignore
-// if (module.hot) {
-// //@ts-ignore
-//     module.hot.accept("./App", () => {
-//         const NextApp = require("./App").default;
-//         render(<NextApp />, rootEl);
-//     });
-// }

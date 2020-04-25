@@ -1,14 +1,15 @@
 import React from "react";
 
-import { HeaderContainer } from "./header/HeaderContainer";
-import { Dashboard } from "./user/Dashboard/Dashboard";
+import { HeaderContainer } from "../components/header/HeaderContainer";
+import { Dashboard } from "../components/user/Dashboard/Dashboard";
 import { Typography, Container } from "@material-ui/core";
+import { IAppProps } from "./AppContainer";
 
-const App = () => {
+const App = ({classes}: IAppProps) => {
     return (
         <>
             <HeaderContainer />
-            <Container maxWidth={"md"}>
+            <div className={classes.contentContainer}>
                 <Typography>
                     This will be an example of a CRUD application.
                 </Typography>
@@ -18,7 +19,7 @@ const App = () => {
                     Backend Technologies: Python / Django
                 </Typography>
                 <Dashboard />
-            </Container>
+            </div>
         </>
     );
 };
