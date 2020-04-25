@@ -27,10 +27,12 @@ module.exports = {
             },
         ],
     },
+    //loaders: ["react-hot"],
     // TODO fix webpack dev server and hot reload? 
     // script is "start": "webpack-dev-server --hot"
-    // devServer: {
-    //     contentBase: path.join(__dirname, "full_stack_app/frontend/templates/frontend/"),
-    //     port: 3000,
-    // },
+    devServer: {
+        contentBase: path.join(__dirname, "full_stack_app/frontend/templates/frontend/"),
+        port: 3000,
+        hot: true,
+    },
 };
