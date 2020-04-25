@@ -3,11 +3,11 @@ import { Typography, Button } from '@material-ui/core'
 import { USER_STORE } from '../../../constants/constants'
 import { IFormProps } from './FormContainer'
 
-export const Form = ({[USER_STORE]:{users, fetchUsers}}: IFormProps) => {
+export const Form = ({[USER_STORE]:{fetchUsers}, classes}: IFormProps) => {
     return (
-        <div>
+        <div className={classes.formContainer}>
             <Typography> Form goes here </Typography>
-            <Button onClick={fetchUsers} > getUsers! </Button>
+            <Button className={classes.formButton} onClick={fetchUsers} > getUsers! </Button>
         </div>
     )
 }

@@ -2,10 +2,10 @@ import React from "react";
 
 import { HeaderContainer } from "../components/header/HeaderContainer";
 import { Dashboard } from "../components/user/Dashboard/Dashboard";
-import { Typography, Container } from "@material-ui/core";
+import { Typography, Container, Paper } from "@material-ui/core";
 import { IAppProps } from "./AppContainer";
 
-const App = ({classes}: IAppProps) => {
+const App = ({ classes }: IAppProps) => {
     return (
         <>
             <HeaderContainer />
@@ -18,7 +18,9 @@ const App = ({classes}: IAppProps) => {
                     <br />
                     Backend Technologies: Python / Django
                 </Typography>
-                <Dashboard />
+                <Paper>
+                    <Dashboard />
+                </Paper>
             </div>
         </>
     );
