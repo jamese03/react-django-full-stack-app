@@ -1,13 +1,11 @@
-import React from "react";
-import { Button } from "@material-ui/core";
+import React from 'react';
+
+import { LayoutContainer } from './layout/LayoutContainer';
 
 const App = () => {
     return (
         <>
-            <h1>Hello world</h1>
-            <Button variant="contained" color="primary">
-                test12345d
-            </Button>
+         <LayoutContainer />
         </>
     );
 };

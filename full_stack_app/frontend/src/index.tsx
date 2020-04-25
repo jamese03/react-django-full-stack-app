@@ -1,13 +1,22 @@
 import React from "react";
 import { render } from "react-dom";
 import App from "./components/App";
+import { ThemeProvider } from "@material-ui/core";
+import theme from "./theme/theme";
+import { HashRouter as Router } from "react-router-dom";
 
 const rootEl = document.getElementById("root");
 
-render(<App />, rootEl);
+render(
+    <ThemeProvider theme={theme}>
+        <Router>
+            <App />
+        </Router>
+    </ThemeProvider>,
+    rootEl
+);
 
-
-// todo figure out hot reload? 
+// todo figure out hot reload?
 // //@ts-ignore
 // if (module.hot) {
 // //@ts-ignore
