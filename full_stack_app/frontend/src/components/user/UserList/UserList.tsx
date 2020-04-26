@@ -1,20 +1,15 @@
-import React from "react";
-import {
-    Typography,
-    Button,
-    TableContainer,
-    Paper,
-    Table,
-    TableHead,
-    TableRow,
-    TableCell,
-    TableBody,
-} from "@material-ui/core";
-import { USER_STORE } from "../../../constants/constants";
-import { IUserListProps } from "./UserListContainer";
-import { IUser } from "../../../mobxmodels/user";
+import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@material-ui/core';
+import React, { useEffect } from 'react';
 
-export const UserList = ({ [USER_STORE]: { users } }: IUserListProps) => {
+import { USER_STORE } from '../../../constants/constants';
+import { IUser } from '../../../mobxmodels/user';
+import { IUserListProps } from './UserListContainer';
+
+export const UserList = ({ [USER_STORE]: { users, fetchUsers } }: IUserListProps) => {
+    useEffect(() => {
+        fetchUsers()
+    }, [users]);
+
     return (
         <div>
             <TableContainer component={Paper}>

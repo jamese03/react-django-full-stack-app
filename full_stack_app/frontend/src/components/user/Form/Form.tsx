@@ -7,7 +7,6 @@ export const Form = ({[USER_STORE]:{fetchUsers}, classes}: IFormProps) => {
     return (
         <div className={classes.formContainer}>
             <Typography> Form goes here </Typography>
-            <Button className={classes.formButton} onClick={fetchUsers} > getUsers! </Button>
         </div>
     )
 }
