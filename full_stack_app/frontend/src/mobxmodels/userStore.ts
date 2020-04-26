@@ -1,17 +1,22 @@
 import { USER_STORE } from "../constants/constants";
-import { types, Instance, SnapshotOut, SnapshotIn, cast, getEnv, applySnapshot } from "mobx-state-tree";
+import { types, Instance, SnapshotOut, SnapshotIn, cast, getEnv, applySnapshot, getSnapshot } from "mobx-state-tree";
 import { User, IUser, IUserSnapshotIn } from "./user";
 import { IStoreEnv } from ".";
 
+
 export const UserStore = types
     .model(USER_STORE, {
-        users: types.optional(types.array(User), [])
+        users: types.optional(types.array(User), []),
+        newUser: types.optional(User, {})
     }).actions((self) =>({
-        addUser: (user: IUser) =>{
-            self.users.push(user)
-        },
         setUsers:(users: IUserSnapshotIn[]) =>{
             applySnapshot(self.users, users);
+        },
+        removeUser: (user: IUser) => {
+            self.users.remove(user)
+        },
+        addUser: (user: IUser) => {
+            self.users.push(user);
         }
     })).actions((self) => ({
         fetchUsers: async ()  => {
@@ -19,8 +24,9 @@ export const UserStore = types
             console.log(JSON.stringify(response.data))
             self.setUsers(response.data)
         },
-        removeUser: (user: IUser) => {
-            self.users.remove(user)
+        createUser: async() =>{
+            const response = await getEnv<IStoreEnv>(self,).Axios.AxiosPostRequests.createUser(getSnapshot(self.newUser));
+            self.addUser(response.data);
         }
     }));
 

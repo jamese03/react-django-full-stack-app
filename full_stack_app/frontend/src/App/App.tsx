@@ -1,9 +1,12 @@
-import React from "react";
+import { Paper, Typography } from '@material-ui/core';
+import React from 'react';
 
-import { HeaderContainer } from "../components/header/HeaderContainer";
-import { Dashboard } from "../components/user/Dashboard/Dashboard";
-import { Typography, Container, Paper } from "@material-ui/core";
-import { IAppProps } from "./AppContainer";
+import { HeaderContainer } from '../components/header/HeaderContainer';
+import { FormContainer } from '../components/user/Form/FormContainer';
+import { UserListContainer } from '../components/user/UserList/UserListContainer';
+import { IAppProps } from './AppContainer';
+import { AddNewUserButtonContainer } from '../components/addNewUserButton/AddNewUserButtonContainer';
+import { Dashboard } from '../components/dashboard/Dashboard';
 
 const App = ({ classes }: IAppProps) => {
     return (
@@ -18,9 +21,8 @@ const App = ({ classes }: IAppProps) => {
                     <br />
                     Backend Technologies: Python / Django
                 </Typography>
-                <Paper>
-                    <Dashboard />
-                </Paper>
+                <UserListContainer />
+                <Dashboard />
             </div>
         </>
     );

@@ -23,8 +23,8 @@ export const UserList = ({ [USER_STORE]: { users, fetchUsers } }: IUserListProps
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {users.map((user: IUser) => (
-                            <TableRow key={user.name}>
+                        {users.map((user: IUser, index) => (
+                            <TableRow key={index}>
                                 <TableCell component="th" scope="user">
                                     {user.name}
                                 </TableCell>

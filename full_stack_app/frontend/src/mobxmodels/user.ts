@@ -18,7 +18,7 @@ export const User = types
         setEmail: (email: string) => {
             self.email = email;
         },
-        setaAbout_me: (about_me: string) => {
+        setAbout_me: (about_me: string) => {
             self.about_me = about_me;
         },
     })).actions((self) =>({
@@ -30,7 +30,6 @@ export const User = types
             } catch (e) {
                 alert("failed to delete user");
             }
-
         }
     }));
 
