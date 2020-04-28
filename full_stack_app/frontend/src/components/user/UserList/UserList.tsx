@@ -1,4 +1,4 @@
-import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@material-ui/core';
+import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Button } from '@material-ui/core';
 import React, { useEffect } from 'react';
 
 import { USER_STORE } from '../../../constants/constants';
@@ -20,6 +20,7 @@ export const UserList = ({ [USER_STORE]: { users, fetchUsers } }: IUserListProps
                             <TableCell align="right">Email </TableCell>
                             <TableCell align="right">About</TableCell>
                             <TableCell align="right">Created At</TableCell>
+                            <TableCell align="right">Delete User</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -36,6 +37,11 @@ export const UserList = ({ [USER_STORE]: { users, fetchUsers } }: IUserListProps
                                 </TableCell>
                                 <TableCell align="right">
                                     {user.created_at}
+                                </TableCell>
+                                <TableCell align="right">
+                                   <Button onClick={user.deleteUser}>
+                                       Delete
+                                   </Button>
                                 </TableCell>
                             </TableRow>
                         ))}

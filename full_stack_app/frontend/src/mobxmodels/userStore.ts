@@ -17,6 +17,9 @@ export const UserStore = types
         },
         addUser: (user: IUser) => {
             self.users.push(user);
+        },
+        resetNewUser:() => {
+            applySnapshot(self.newUser, {});
         }
     })).actions((self) => ({
         fetchUsers: async ()  => {
@@ -27,7 +30,8 @@ export const UserStore = types
         createUser: async() =>{
             const response = await getEnv<IStoreEnv>(self,).Axios.AxiosPostRequests.createUser(getSnapshot(self.newUser));
             self.addUser(response.data);
-        }
+            self.resetNewUser();
+        },
     }));
 
 export type IUserStore = Instance<typeof UserStore>;

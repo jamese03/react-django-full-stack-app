@@ -10,7 +10,25 @@ export const User = types
         email: types.optional(types.string, ""),
         about_me: types.optional(types.string, ""),
         created_at: types.optional(types.string, "")
-    })
+    }).volatile((self)=>({
+        nameHasBeenEdited: false,
+        emailHasBeenEdited: false,
+    })).views((self)=>({
+        get isNameValid () {
+            return self.name !== "" && self.name.length < 100;
+        },
+        get isAbout_meValid() {
+            return self.about_me.length < 100; 
+        },
+        get isEmailValid () {
+            const validEmail = (self.email !== "" && self.email.length < 100 && self.email.indexOf("@") > 0);
+            return validEmail;
+        }
+    })).views((self)=>({
+        get isValidForSave () {
+            return self.isNameValid && self.isAbout_meValid && self.isEmailValid
+        }, 
+    }))
     .actions((self) => ({
         setName: (name: string) => {
             self.name = name;
@@ -21,6 +39,12 @@ export const User = types
         setAbout_me: (about_me: string) => {
             self.about_me = about_me;
         },
+        setNameHasBeenEdited: () => {
+            self.nameHasBeenEdited = true;
+        },
+        setEmailHasBeenEdited: () => {
+            self.emailHasBeenEdited = true;
+        }
     })).actions((self) =>({
         deleteUser: async () => {
             const userStore = getParent(self, 2) as IUserStore;
