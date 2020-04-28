@@ -17,7 +17,7 @@ const App = ({ classes }: IAppProps) => {
                     This will be an example of a CRUD application.
                 </Typography>
                 <Typography>
-                    Frontend Technologies: React / Typescript / Mobx State Tree
+                    Frontend Technologies: Typescript / React / Mobx State Tree
                     <br />
                     Backend Technologies: Python / Django
                 </Typography>

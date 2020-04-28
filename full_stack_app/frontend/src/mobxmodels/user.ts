@@ -21,7 +21,8 @@ export const User = types
             return self.about_me.length < 100; 
         },
         get isEmailValid () {
-            const validEmail = (self.email !== "" && self.email.length < 100 && self.email.indexOf("@") > 0);
+            const validEmail = (self.email !== "" && self.email.length < 100
+             && self.email.match(/(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z0-9][a-z0-9-]{0,61}[a-z0-9]/));
             return validEmail;
         }
     })).views((self)=>({

@@ -17,10 +17,10 @@ export const UserList = ({ [USER_STORE]: { users, fetchUsers } }: IUserListProps
                     <TableHead>
                         <TableRow>
                             <TableCell> Name </TableCell>
-                            <TableCell align="right">Email </TableCell>
-                            <TableCell align="right">About</TableCell>
-                            <TableCell align="right">Created At</TableCell>
-                            <TableCell align="right">Delete User</TableCell>
+                            <TableCell align="center">Email </TableCell>
+                            <TableCell align="center">About</TableCell>
+                            <TableCell align="center">Created At</TableCell>
+                            <TableCell align="center">Delete User</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -29,16 +29,16 @@ export const UserList = ({ [USER_STORE]: { users, fetchUsers } }: IUserListProps
                                 <TableCell component="th" scope="user">
                                     {user.name}
                                 </TableCell>
-                                <TableCell align="right">
+                                <TableCell align="center">
                                     {user.email}
                                 </TableCell>
-                                <TableCell align="right">
+                                <TableCell align="center">
                                     {user.about_me}
                                 </TableCell>
-                                <TableCell align="right">
+                                <TableCell align="center">
                                     {user.created_at}
                                 </TableCell>
-                                <TableCell align="right">
+                                <TableCell align="center">
                                    <Button onClick={user.deleteUser}>
                                        Delete
                                    </Button>

@@ -7,6 +7,12 @@ export const FormStyles = (theme: Theme) => {
         },
         formButton: {
             color: "#f1ee93"
+        },
+        paperContainer: {
+            textAlign: "center",
+        },
+        buttonContainer: {
+            
         }
     });
 };
