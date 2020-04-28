@@ -1,10 +1,10 @@
-import { WithStyles } from '@material-ui/core';
-import { RouteComponentProps } from 'react-router';
 import { ContainerHOC } from '../../HOC/ContainerHOC';
 import { UserList } from './UserList';
 import { UserListStyles } from './UserListStyles';
 import { USER_STORE } from '../../../constants/constants';
 import { IUserStore } from '../../../mobxmodels/userStore';
+import { RouteComponentProps } from 'react-router';
+import { WithStyles } from '@material-ui/core';
 
 
 

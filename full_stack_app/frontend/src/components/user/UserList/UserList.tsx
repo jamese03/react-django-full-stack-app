@@ -1,11 +1,21 @@
-import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Button } from '@material-ui/core';
 import React, { useEffect } from 'react';
 
 import { USER_STORE } from '../../../constants/constants';
 import { IUser } from '../../../mobxmodels/user';
+import {
+    Button,
+    Paper,
+    Table,
+    TableBody,
+    TableCell,
+    TableContainer,
+    TableHead,
+    TableRow,
+} from '@material-ui/core';
 import { IUserListProps } from './UserListContainer';
+import { FormContainer } from '../form/FormContainer';
 
-export const UserList = ({ [USER_STORE]: { users, fetchUsers } }: IUserListProps) => {
+export const UserList = ({ [USER_STORE]: { users, fetchUsers }, history }: IUserListProps) => {
     useEffect(() => {
         fetchUsers()
     }, [users]);
@@ -25,7 +35,7 @@ export const UserList = ({ [USER_STORE]: { users, fetchUsers } }: IUserListProps
                     </TableHead>
                     <TableBody>
                         {users.map((user: IUser, index) => (
-                            <TableRow key={index}>
+                            <TableRow onClick={()=>{history.push(`${user.id}/edit`)}} key={index}>
                                 <TableCell component="th" scope="user">
                                     {user.name}
                                 </TableCell>
@@ -36,7 +46,7 @@ export const UserList = ({ [USER_STORE]: { users, fetchUsers } }: IUserListProps
                                     {user.about_me}
                                 </TableCell>
                                 <TableCell align="center">
-                                    {user.created_at}
+                                    {user.createdAtTrimmed}
                                 </TableCell>
                                 <TableCell align="center">
                                    <Button onClick={user.deleteUser}>
@@ -48,6 +58,7 @@ export const UserList = ({ [USER_STORE]: { users, fetchUsers } }: IUserListProps
                     </TableBody>
                 </Table>
             </TableContainer>
+            <FormContainer />
         </div>
     );
 };

@@ -24,6 +24,9 @@ export const User = types
             const validEmail = (self.email !== "" && self.email.length < 100
              && self.email.match(/(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z0-9][a-z0-9-]{0,61}[a-z0-9]/));
             return validEmail;
+        },
+        get createdAtTrimmed() {
+            return self.created_at.substr(0, self.created_at.indexOf("T"))
         }
     })).views((self)=>({
         get isValidForSave () {

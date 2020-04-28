@@ -1,17 +1,9 @@
-import {
-    Button,
-    FormControl,
-    Input,
-    InputLabel,
-    Paper,
-    Grid,
-} from "@material-ui/core";
-import React, { useState } from "react";
+import { Button, FormControl, Grid, Input, InputLabel, Paper } from '@material-ui/core';
+import React, { useState } from 'react';
 
-import { IUser } from "../../../mobxmodels/user";
-import { IFormProps } from "./FormContainer";
-import { USER_STORE } from "../../../constants/constants";
-import { AddNewUserButtonContainer } from "../../addNewUserButton/AddNewUserButtonContainer";
+import { USER_STORE } from '../../../constants/constants';
+import { IFormProps } from './FormContainer';
+
 
 export const Form = ({
     [USER_STORE]: { newUser, createUser },
