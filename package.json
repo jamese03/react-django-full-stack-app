@@ -20,7 +20,7 @@
         "@types/react-router-dom": "^5.1.4",
         "@types/recompose": "^0.30.7",
         "awesome-typescript-loader": "^5.2.1",
-        "axios": "^0.19.2",
+        "axios": "^0.21.1",
         "babel-loader": "^8.1.0",
         "babel-plugin-transform-class-properties": "^6.24.1",
         "mobx": "^5.15.4",
